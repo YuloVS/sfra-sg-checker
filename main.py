@@ -6,8 +6,8 @@ from alive_progress import alive_bar
 
 
 def is_sfra(site_dom: bs4.BeautifulSoup):
-    div_element = site_dom.find_all('div', class_='page', attrs={'data-action': True}, limit=1) # Stricter check
-    #div_element = site_dom.find_all('div', attrs={'data-action': True}, limit=1)
+    div_element = site_dom.find_all('div', class_='page', attrs={'data-action': True}, limit=1)  # Stricter check
+    # div_element = site_dom.find_all('div', attrs={'data-action': True}, limit=1)  # Not recommended check
     if div_element:
         return True
     return False
@@ -72,5 +72,4 @@ def process_sites(sites: list):
 
 
 if __name__ == '__main__':
-    write_csv(process_sites(read_urls_from_csv('./SFCC_Websites.csv')))
-    #scan_site('https://www.underarmour.com')
+    write_csv(process_sites(read_urls_from_csv('./SFCC_Websites.csv')))  # Be sure to set the proper route to your csv
